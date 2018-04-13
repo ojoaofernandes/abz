@@ -1,0 +1,7 @@
+<h4>Bookshelves</h4>
+
+<div class='list-group'>
+  <% @bookshelves.each do |bookshelf| %>
+    <%= link_to bookshelf.name.capitalize, '#', class: 'list-group-item' %>
+  <% end %>
+</div>
