@@ -6,9 +6,9 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <%= nav_link 'See Bookshelves', root_path %>
+      <%= nav_link 'See Books', root_path %>
       <% if user_signed_in? %>
-        <%= nav_link 'My Bookshelf', books_path %>
+        <%= nav_link 'My Books', books_path %>
       <% end %>
     </ul>
     <ul class="navbar-nav">
