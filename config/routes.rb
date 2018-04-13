@@ -5,9 +5,8 @@ Rails.application.routes.draw do
     passwords: 'users/passwords'
   }
 
-  devise_scope :user do
-   root :to => 'users/sessions#new'
-  end
+  get 'home/index'
+  root 'home#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
