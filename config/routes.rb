@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :disciplines
   devise_for :users
   devise_scope :user do
     root :to => 'users/sessions#new'
