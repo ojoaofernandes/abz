@@ -35,12 +35,7 @@
     <%= form.label :quantity %>
     <%= form.number_field :quantity, id: :book_quantity %>
   </div>
-
-  <div class="field">
-    <%= form.label :classification %>
-    <%= form.text_field :classification, id: :book_classification %>
-  </div>
-
+  
   <div class="field">
     <%= form.label :language %>
     <%= form.select :language, options_for_select([["Select", "none"], ["PT-BR", "PT-BR"], ["EN-US", "EN-US"]]) %>

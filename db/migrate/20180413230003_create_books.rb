@@ -6,7 +6,6 @@ class CreateBooks < ActiveRecord::Migration[5.1]
       t.string :publisher
       t.integer :pages
       t.integer :quantity
-      t.string :classification
       t.string :language
       t.integer :discipline_id
 

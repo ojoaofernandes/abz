@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 20180413230732) do
     t.string "publisher"
     t.integer "pages"
     t.integer "quantity"
-    t.string "classification"
     t.string "language"
     t.integer "discipline_id"
     t.datetime "created_at", null: false
