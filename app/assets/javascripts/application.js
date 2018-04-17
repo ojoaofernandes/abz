@@ -17,3 +17,19 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
+
+$(document).ready(() => {
+  $('.js-bookshelf-filter').on('keyup', (event) => {
+    showBookshelves(event.currentTarget.value)
+  });
+});
+
+function showBookshelves(name) {
+  const bookshelves = $('.js-bookshelf');
+  bookshelves.each((index, el) => {
+    if (el.innerText.toLowerCase().includes(name.toLowerCase()))
+      $(el).show();
+    else
+      $(el).hide();
+  });
+}
