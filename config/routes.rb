@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :books
   resources :disciplines
+  resources :bookings
   get 'home/index'
 
   devise_for :users, controllers: {
