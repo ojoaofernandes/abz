@@ -4,41 +4,43 @@
       <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
 
       <ul>
-      <% book.errors.full_messages.each do |message| %>
+        <% book.errors.full_messages.each do |message| %>
         <li><%= message %></li>
-      <% end %>
+        <% end %>
       </ul>
     </div>
   <% end %>
+
   <%= form.hidden_field :user_id, value: current_user.id  %>
-  <div class="field">
+
+  <div class="form-group">
     <%= form.label :title %>
-    <%= form.text_field :title, id: :book_title %>
+    <%= form.text_field :title, id: :book_title, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :author %>
-    <%= form.text_field :author, id: :book_author %>
+    <%= form.text_field :author, id: :book_author, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :publisher %>
-    <%= form.text_field :publisher, id: :book_publisher %>
+    <%= form.text_field :publisher, id: :book_publisher, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :pages %>
-    <%= form.number_field :pages, id: :book_pages %>
+    <%= form.number_field :pages, id: :book_pages, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :quantity %>
-    <%= form.number_field :quantity, id: :book_quantity %>
+    <%= form.number_field :quantity, id: :book_quantity, class: 'form-control' %>
   </div>
-  
-  <div class="field">
+
+  <div class="form-group">
     <%= form.label :language %>
-    <%= form.select :language, options_for_select([["Select", "none"], ["PT-BR", "PT-BR"], ["EN-US", "EN-US"]]) %>
+    <%= form.select :language, %w[None PT-BR EN], {}, { class: 'form-control' } %>
   </div>
 
   <div class="form-group">
@@ -47,11 +49,10 @@
   </div>
 
   <div class="form-group">
-      <%= form.label "Book cover"%>
-      <%= form.file_field :image, id: :book_image, multiple: false, :class => 'form-control' %>
+    <%= form.label "Book cover"%>
+    <%= form.file_field :image, id: :book_image, multiple: false, :class => 'form-control' %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= form.submit nil, class: 'btn btn-block btn-success' %>
+  <%= link_to 'Back', books_path, class: 'btn btn-light' %>
 <% end %>

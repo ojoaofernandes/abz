@@ -1,29 +1,21 @@
-<div class="row justify-content-center">
-  <div class="col-4">
-    <%= title 'New discipline' %>
-    <hr>
-<%= form_with(model: discipline, local: true) do |f| %>
+<%= form_with(model: discipline, local: true) do |form| %>
   <% if discipline.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(discipline.errors.count, "error") %> prohibited this discipline from being saved:</h2>
 
       <ul>
-      <% discipline.errors.full_messages.each do |message| %>
+        <% discipline.errors.full_messages.each do |message| %>
         <li><%= message %></li>
-      <% end %>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
   <div class="form-group">
-  <%= f.label :name %>
-  <%= f.text_field :name, autofocus: true, class: 'form-control' %>
-</div>
+    <%= form.label :name %>
+    <%= form.text_field :name, autofocus: true, class: 'form-control' %>
+  </div>
 
-<div class="actions">
-<%= f.submit 'Confirm', class: 'btn btn-block btn-success' %>
-</div>
+  <%= form.submit nil, class: 'btn btn-block btn-success' %>
+  <%= link_to 'Back', disciplines_path, class: 'btn btn-light' %>
 <% end %>
-<hr>
-</div>
-</div>
