@@ -12,4 +12,8 @@ module ApplicationHelper
       end
     end
   end
+
+  def date_humanize date
+    date.strftime('%d/%m/%Y %I:%M %p')
+  end
 end

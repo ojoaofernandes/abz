@@ -1,0 +1,28 @@
+<div class="row">
+  <% @books.each do |book| %>
+  <div class="col-md-4 mb-3">
+    <div class="card">
+      <%= card_image '' %>
+
+      <div class="card-body">
+        <h4 class="card-title mb-2"><%= book.title %></h4>
+
+        <span class="badge badge-primary"><%= book.pages %> pages</span>
+        <span class="badge badge-secondary"><%= book.language.upcase %></span>
+        <span class="badge badge-success"><%= book.quantity %> un.</span>
+
+        <p class="card-text mt-2">
+          <strong>Author:</strong> <%= book.author %> <br>
+          <strong>Publisher:</strong> <%= book.publisher %> <br>
+          <strong>Discipline:</strong> <%= book.discipline.name %> <br>
+        </p>
+
+        <%= link_to 'See book', book, class: 'btn btn-sm btn-success' %>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Added at <%= date_humanize book.created_at %></small>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
