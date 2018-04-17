@@ -1,37 +1,50 @@
-<p>
-  <strong>Title:</strong>
-  <%= @book.title %>
-</p>
+<%= title @book.title %>
 
 <p>
-  <strong>Author:</strong>
-  <%= @book.author %>
+  <small class="text-muted">Added at <%= date_humanize @book.created_at %></small>
 </p>
 
-<p>
-  <strong>Publisher:</strong>
-  <%= @book.publisher %>
-</p>
+<hr>
 
-<p>
-  <strong>Pages:</strong>
-  <%= @book.pages %>
-</p>
 
-<p>
-  <strong>Quantity:</strong>
-  <%= @book.quantity %>
-</p>
+<div class="row">
+  <div class="col-5">
+    <img class="img-fluid" src="<%= @book.image %>" alt="<%= @book.title %>">
+  </div>
 
-<p>
-  <strong>Language:</strong>
-  <%= @book.language %>
-</p>
+  <div class="col-5">
+    <p>
+      <strong>Author:</strong>
+      <%= @book.author %>
+    </p>
 
-<p>
-  <strong>Discipline:</strong>
-  <%= @book.discipline_id %>
-</p>
+    <p>
+      <strong>Publisher:</strong>
+      <%= @book.publisher %>
+    </p>
 
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+    <p>
+      <strong>Pages:</strong>
+      <%= @book.pages %>
+    </p>
+
+    <p>
+      <strong>Quantity:</strong>
+      <%= @book.quantity %> / corrigir
+    </p>
+
+    <p>
+      <strong>Language:</strong>
+      <%= @book.language %>
+    </p>
+
+    <p>
+      <strong>Discipline:</strong>
+      <%= @book.discipline.name %>
+    </p>
+  </div>
+
+  <div class="col-2">
+    <button class="btn btn-success">Request booking</button>
+  </div>
+</div>
