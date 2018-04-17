@@ -1,8 +1,11 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  has_many :books
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  scope :all_with_books_ordered, -> { order name: :asc }
+  scope :with_books, -> { where("id in (select user_id from books)").order(role: :asc, name: :asc) }
+
 end

@@ -5,8 +5,6 @@
     <%= text_field_tag :search, nil, class: "form-control js-bookshelf-filter", placeholder: "Find a bookshelf" %>
   </div>
 
-  <%= link_to 'UTFPR', '#', class: 'list-group-item'%>
-
   <% @bookshelves.each do |bookshelf| %>
     <%= link_to bookshelf.name.capitalize, '#', class: 'list-group-item' %>
   <% end %>
