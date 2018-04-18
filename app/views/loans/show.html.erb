@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Booking:</strong>
+  <%= @loan.booking_id %>
+</p>
+
+<p>
+  <strong>Loan date:</strong>
+  <%= @loan.loan_date %>
+</p>
+
+<p>
+  <strong>Return at:</strong>
+  <%= @loan.return_at %>
+</p>
+
+<p>
+  <strong>Returned at:</strong>
+  <%= @loan.returned_at %>
+</p>
+
+<%= link_to 'Edit', edit_loan_path(@loan) %> |
+<%= link_to 'Back', loans_path %>

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
+  resources :loans
   resources :books
   resources :disciplines
-  resources :bookings
   get 'home/index'
 
   devise_for :users, controllers: {
@@ -9,6 +9,10 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     passwords: 'users/passwords'
   }
+
+  post 'bookings/create'
+  delete 'bookings/destroy'
+  get 'bookings/index'
 
   root 'home#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

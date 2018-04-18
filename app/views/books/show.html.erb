@@ -6,7 +6,6 @@
 
 <hr>
 
-
 <div class="row">
   <div class="col-5">
     <img class="img-fluid" src="<%= @book.image %>" alt="<%= @book.title %>">
@@ -45,6 +44,6 @@
   </div>
 
   <div class="col-2">
-    <button class="btn btn-success">Request booking</button>
+    <%= link_to "Request booking", bookings_create_url({booking:{book_id: @book.id}}), method: :post, class: "btn btn-success" %>
   </div>
 </div>
