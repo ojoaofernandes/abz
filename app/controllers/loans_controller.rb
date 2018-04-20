@@ -4,7 +4,7 @@ class LoansController < ApplicationController
   # GET /loans
   # GET /loans.json
   def index
-    @loans_for = Loan.where("booking_id in (select id from bookings where book_id in (select id from books where user_id = ?))", current_user.id).order(updated_at: :desc)
+    @loans_for = Loan.where("booking_id in (select id from bookings where book_id in (select id from books where user_id = ?))", current_user.id).order(updated_at: :asc)
     @loans_from = Loan.where("booking_id in (select id from bookings where user_id = ?)", current_user.id)
   end
 
