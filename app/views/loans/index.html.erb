@@ -30,9 +30,9 @@
           <tr>
             <td><%= loan.booking.book.title %></td>
             <td><%= loan.booking.user.name %></td>
-            <td><%= loan.loan_date %></td>
-            <td><%= loan.return_at %></td>
-            <td><%= loan.returned_at %></td>
+            <td><%= date_humanize loan.loan_date %></td>
+            <td><%= date_humanize loan.return_at %></td>
+            <td><%= date_humanize loan.returned_at %></td>
             <td class="text-center">
                <% if loan.returned_at.blank? %>
                 <%= link_to "Return", loan_url(loan), method: :put, class: "btn btn-sm btn-success" %>
@@ -61,9 +61,9 @@
           <tr>
             <td><%= loan.booking.book.title %></td>
             <td><%= loan.booking.book.user.name %></td>
-            <td><%= loan.loan_date %></td>
-            <td><%= loan.return_at %></td>
-            <td><%= loan.returned_at %></td>
+            <td><%= date_humanize loan.loan_date %></td>
+            <td><%= date_humanize loan.return_at %></td>
+            <td><%= date_humanize loan.returned_at %></td>
           </tr>
         <% end %>
       </tbody>
