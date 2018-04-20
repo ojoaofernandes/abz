@@ -14,6 +14,7 @@ module ApplicationHelper
   end
 
   def date_humanize date
+    return '' if date == nil
     date.strftime('%d/%m/%Y %I:%M %p')
   end
 end
