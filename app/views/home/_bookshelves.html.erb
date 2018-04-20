@@ -6,6 +6,7 @@
   </div>
 
   <% @bookshelves.each do |bookshelf| %>
-    <%= link_to bookshelf.name.capitalize, '#', class: 'list-group-item js-bookshelf' %>
+    <%= link_to bookshelf.name.capitalize, home_index_path(user_id: bookshelf.id), class: 'list-group-item js-bookshelf' %>
   <% end %>
+  <%= link_to "All books", home_index_path, class: 'list-group-item js-bookshelf' %>
 </div>
