@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :books
   resources :disciplines
   get 'home/index'
+  post 'books/import_books'
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
