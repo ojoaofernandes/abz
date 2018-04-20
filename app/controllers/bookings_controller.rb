@@ -12,23 +12,25 @@ class BookingsController < ApplicationController
         @booking.booked_until = DateTime.now + 3
 
         respond_to do |format|
-          if @booking.save
-            format.html { redirect_to bookings_index_url, notice: 'Booking was successfully created.' }
-          else
-            format.html { redirect_to request.referrer, notice: 'Failed for create.' }
-          end
+            if @booking.save
+                format.html { redirect_to bookings_index_url, notice: 'Booking was successfully created.' }
+            else
+                format.html { redirect_to request.referrer, notice: 'Failed for create.' }
+            end
         end
     end
 
     def destroy
+        @booking = Booking.find(params[:id])
         @booking.destroy
         respond_to do |format|
-          format.html { redirect_to bookings_url, notice: 'Booking was successfully destroyed.' }
+            format.html { redirect_to bookings_index_url, notice: 'Booking was successfully destroyed.' }
         end
     end
 
     private
-        def booking_params
-            params.require(:booking).permit(:book_id)
-        end
+    def booking_params
+        params.require(:booking).permit(:book_id)
+    end
+
 end

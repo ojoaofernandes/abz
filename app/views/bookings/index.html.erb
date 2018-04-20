@@ -33,7 +33,7 @@
             <td><%= booking.book.quantity %></td>
             <td class="text-center">
               <button class="btn btn-sm btn-success">Loan</button>
-              <button class="btn btn-sm btn-danger">Deny</button>
+              <%= link_to 'Deny', booking_destroy_path(booking), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
             </td>
           </tr>
         <% end %>
@@ -61,7 +61,7 @@
             <td><%= booking.booked_until %></td>
             <td><%= booking.book.quantity %></td>
             <td class="text-center">
-              <button class="btn btn-sm btn-danger">Cancel</button>
+              <%= link_to 'Cancel', booking_destroy_path(booking), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
             </td>
           </tr>
         <% end %>

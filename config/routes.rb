@@ -10,9 +10,9 @@ Rails.application.routes.draw do
     passwords: 'users/passwords'
   }
 
-  post 'bookings/create'
-  delete 'bookings/destroy'
   get 'bookings/index'
+  post 'bookings/create'
+  delete 'bookings/destroy/:id', to: 'bookings#destroy', as: 'booking_destroy'
 
   root 'home#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
