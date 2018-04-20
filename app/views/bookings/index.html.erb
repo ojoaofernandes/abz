@@ -25,7 +25,7 @@
       </thead>
 
       <tbody>
-        <% @bookings.each do |booking| %>
+        <% @bookings_for.each do |booking| %>
           <tr>
             <td><%= booking.book.title %></td>
             <td><%= booking.user.name %></td>
@@ -54,7 +54,7 @@
       </thead>
 
       <tbody>
-        <% @bookings.each do |booking| %>
+        <% @bookings_from.each do |booking| %>
           <tr>
             <td><%= booking.book.title %></td>
             <td><%= booking.book.user.name %></td>

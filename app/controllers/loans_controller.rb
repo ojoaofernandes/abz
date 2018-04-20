@@ -1,10 +1,11 @@
 class LoansController < ApplicationController
-  before_action :set_loan, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, :set_loan, only: [:show, :edit, :update, :destroy]
 
   # GET /loans
   # GET /loans.json
   def index
-    @loans = Loan.all
+    @loans_for = Loan.where("booking_id in (select id from bookings where book_id in (select id from books where user_id = ?))", current_user.id)
+    @loans_from = Loan.where("booking_id in (select id from bookings where user_id = ?)", current_user.id)
   end
 
   # GET /loans/1
