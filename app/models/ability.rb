@@ -31,5 +31,7 @@ class Ability
     user ||= User.new
     can :manage, Booking, user_id: user.id
     can :manage, Loan, user_id: user.id
+
+    can :manage, Discipline if user.role == 'admin'
   end
 end
