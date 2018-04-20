@@ -1,9 +1,12 @@
 class BookingsController < ApplicationController
 
 before_action :authenticate_user!
+load_and_authorize_resource
+skip_load_and_authorize_resource only: :show
     
-def index
-        @bookings = Booking.all
+    def index
+        @bookings_for = Booking.where("book_id in (select id from books where user_id = ?)", current_user.id)
+        @bookings_from = Booking.where user_id: current_user.id 
     end
 
     def create
