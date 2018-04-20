@@ -36,5 +36,4 @@ skip_load_and_authorize_resource only: :show
     def booking_params
         params.require(:booking).permit(:book_id)
     end
-
 end
