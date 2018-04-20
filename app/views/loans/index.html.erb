@@ -21,6 +21,7 @@
           <th>Starting at</th>
           <th>Returning at</th>
           <th>Returned at</th>
+          <th>Status</th>
           <th></th>
         </tr>
       </thead>
@@ -33,6 +34,15 @@
             <td><%= date_humanize loan.loan_date %></td>
             <td><%= date_humanize loan.return_at %></td>
             <td><%= date_humanize loan.returned_at %></td>
+            <td>
+              <% if loan.returned_at != nil %>
+                <span class="text-secondary">Returned</span>
+              <% elsif loan.return_at < Date.today %>
+                <span class="text-danger">Overdue</span>
+              <% else %>
+                <span class="text-info">Pending</span>
+              <% end %>
+            </td>
             <td class="text-center">
                <% if loan.returned_at.blank? %>
                 <%= link_to "Return", loan_url(loan), method: :put, class: "btn btn-sm btn-success" %>
