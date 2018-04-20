@@ -7,10 +7,12 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
+      <%= nav_link 'Disciplines', disciplines_path if can? :manage, Discipline %>
         <%= nav_link 'My Books', books_path %>
         <%= nav_link 'Bookings', bookings_index_path %>
         <%= nav_link 'Loans', loans_path %>
       <% end %>
+
     </ul>
 
     <ul class="navbar-nav">
