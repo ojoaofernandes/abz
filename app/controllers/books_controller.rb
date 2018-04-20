@@ -10,6 +10,8 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
+    #loans = Loan.joins(:booking).where(bookings: { book_id: @book.id }, returned_at: nil)
+    #@book.quantity = @book.quantity - loans
   end
 
   # GET /books/new

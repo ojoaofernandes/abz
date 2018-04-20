@@ -30,7 +30,11 @@
             <td><%= booking.book.title %></td>
             <td><%= booking.user.name %></td>
             <td><%= booking.booked_until %></td>
-            <td><%= booking.book.quantity %></td>
+            <td>
+              <%= booking.book.quantity_available %>
+              /
+              <%= booking.book.quantity %>
+            </td>
             <td class="text-center">
               <%= link_to "Loan", loans_url({loan:{booking_id: booking.id}}), method: :post, class: "btn btn-sm btn-success" %>
               <%= link_to 'Deny', booking_destroy_path(booking), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
@@ -59,7 +63,11 @@
             <td><%= booking.book.title %></td>
             <td><%= booking.book.user.name %></td>
             <td><%= booking.booked_until %></td>
-            <td><%= booking.book.quantity %></td>
+            <td>
+              <%= booking.book.quantity_available %>
+              /
+              <%= booking.book.quantity %>
+            </td>
             <td class="text-center">
               <%= link_to 'Cancel', booking_destroy_path(booking), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
             </td>

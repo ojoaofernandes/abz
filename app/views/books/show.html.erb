@@ -29,7 +29,9 @@
 
     <p>
       <strong>Quantity:</strong>
-      <%= @book.quantity %> / corrigir
+      <%= @book.quantity_available %>
+      /
+      <%= @book.quantity %>
     </p>
 
     <p>
@@ -45,7 +47,7 @@
 
   <div class="col-2">
     <% if @book.user_id != current_user.id %>
-      <%= link_to "Request booking", bookings_create_url({booking:{book_id: @book.id}}), method: :post, class: "btn btn-success" %>
+      <%= link_to_booking @book %>
     <% end %>
   </div>
 </div>
