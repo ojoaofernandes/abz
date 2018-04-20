@@ -34,7 +34,9 @@
             <td><%= loan.return_at %></td>
             <td><%= loan.returned_at %></td>
             <td class="text-center">
-              <button class="btn btn-sm btn-success">Return</button>
+               <% if loan.returned_at.blank? %>
+                <%= link_to "Return", loan_url(loan), method: :put, class: "btn btn-sm btn-success" %>
+               <% end %>
             </td>
           </tr>
         <% end %>

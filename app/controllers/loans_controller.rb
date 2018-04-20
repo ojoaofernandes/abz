@@ -4,54 +4,37 @@ class LoansController < ApplicationController
   # GET /loans
   # GET /loans.json
   def index
-    @loans_for = Loan.where("booking_id in (select id from bookings where book_id in (select id from books where user_id = ?))", current_user.id)
+    @loans_for = Loan.where("booking_id in (select id from bookings where book_id in (select id from books where user_id = ?))", current_user.id).order(updated_at: :desc)
     @loans_from = Loan.where("booking_id in (select id from bookings where user_id = ?)", current_user.id)
-  end
-
-  # GET /loans/1
-  # GET /loans/1.json
-  def show
-  end
-
-  # GET /loans/new
-  def new
-    @loan = Loan.new
-  end
-
-  # GET /loans/1/edit
-  def edit
   end
 
   # POST /loans
   # POST /loans.json
   def create
-    @loan = Loan.new(loan_params)
+    @loan = Loan.new()
+    @loan.booking_id = loan_params['booking_id']
+    @loan.loan_date = DateTime.now
+    @loan.return_at = DateTime.now + 5;
 
     respond_to do |format|
       if @loan.save
-        format.html { redirect_to @loan, notice: 'Loan was successfully created.' }
-        format.json { render :show, status: :created, location: @loan }
+        format.html { redirect_to loans_path, notice: 'Loan was successfully created.' }
       else
-        format.html { render :new }
-        format.json { render json: @loan.errors, status: :unprocessable_entity }
+        format.html { render :index, notice: 'Loan was not created.' }
       end
     end
   end
 
-  # PATCH/PUT /loans/1
-  # PATCH/PUT /loans/1.json
   def update
     respond_to do |format|
-      if @loan.update(loan_params)
-        format.html { redirect_to @loan, notice: 'Loan was successfully updated.' }
-        format.json { render :show, status: :ok, location: @loan }
+      @loan.returned_at = DateTime.now
+      if @loan.save
+        format.html { redirect_to loans_path, notice: 'Loan was successfully updated.' }
       else
-        format.html { render :edit }
-        format.json { render json: @loan.errors, status: :unprocessable_entity }
+        format.html { render :index, notice: 'Loan was not updated.' }
       end
     end
   end
-
   # DELETE /loans/1
   # DELETE /loans/1.json
   def destroy

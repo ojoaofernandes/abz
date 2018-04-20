@@ -1,6 +1,5 @@
 class BooksController < ApplicationController
   before_action :authenticate_user!, :set_book, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
   skip_load_and_authorize_resource only: :show
   # GET /books
   # GET /books.json

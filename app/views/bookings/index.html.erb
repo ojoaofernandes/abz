@@ -32,7 +32,7 @@
             <td><%= booking.booked_until %></td>
             <td><%= booking.book.quantity %></td>
             <td class="text-center">
-              <button class="btn btn-sm btn-success">Loan</button>
+              <%= link_to "Loan", loans_url({loan:{booking_id: booking.id}}), method: :post, class: "btn btn-sm btn-success" %>
               <%= link_to 'Deny', booking_destroy_path(booking), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
             </td>
           </tr>
