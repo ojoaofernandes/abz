@@ -1,4 +1,4 @@
-<%= title 'Loans' %>
+<%= title 'Bookings' %>
 <hr>
 
 <nav>
@@ -17,24 +17,23 @@
       <thead>
         <tr>
           <th>Title</th>
-          <th>Borrower</th>
-          <th>Starting at</th>
-          <th>Returning at</th>
-          <th>Returned at</th>
+          <th>Requester</th>
+          <th>Until</th>
+          <th>Qt. available</th>
           <th></th>
         </tr>
       </thead>
 
       <tbody>
-        <% @loans.each do |loan| %>
+        <% @bookings.each do |booking| %>
           <tr>
-            <td><%= loan.booking.book.title %></td>
-            <td><%= loan.booking.user.name %></td>
-            <td><%= loan.loan_date %></td>
-            <td><%= loan.return_at %></td>
-            <td><%= loan.returned_at %></td>
+            <td><%= booking.book.title %></td>
+            <td><%= booking.user.name %></td>
+            <td><%= booking.booked_until %></td>
+            <td><%= booking.book.quantity %></td>
             <td class="text-center">
-              <button class="btn btn-sm btn-success">Return</button>
+              <button class="btn btn-sm btn-success">Loan</button>
+              <button class="btn btn-sm btn-danger">Deny</button>
             </td>
           </tr>
         <% end %>
@@ -47,21 +46,23 @@
       <thead>
         <tr>
           <th>Title</th>
-          <th>Borrower</th>
-          <th>Starting at</th>
-          <th>Returning at</th>
-          <th>Returned at</th>
+          <th>Loaner</th>
+          <th>Until</th>
+          <th>Qt. available</th>
+          <th></th>
         </tr>
       </thead>
 
       <tbody>
-        <% @loans.each do |loan| %>
+        <% @bookings.each do |booking| %>
           <tr>
-            <td><%= loan.booking.book.title %></td>
-            <td><%= loan.booking.book.user.name %></td>
-            <td><%= loan.loan_date %></td>
-            <td><%= loan.return_at %></td>
-            <td><%= loan.returned_at %></td>
+            <td><%= booking.book.title %></td>
+            <td><%= booking.book.user.name %></td>
+            <td><%= booking.booked_until %></td>
+            <td><%= booking.book.quantity %></td>
+            <td class="text-center">
+              <button class="btn btn-sm btn-danger">Cancel</button>
+            </td>
           </tr>
         <% end %>
       </tbody>

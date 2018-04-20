@@ -1,8 +1,9 @@
 class BookingsController < ApplicationController
-    before_action :authenticate_user!
+
+before_action :authenticate_user!
     
-    def index
-        @bookings = Bookings.all
+def index
+        @bookings = Booking.all
     end
 
     def create
