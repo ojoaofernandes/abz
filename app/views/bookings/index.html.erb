@@ -31,6 +31,10 @@
             <td><%= booking.user.name %></td>
             <td><%= booking.booked_until %></td>
             <td><%= booking.book.quantity %></td>
+            <td class="text-center">
+              <button class="btn btn-sm btn-success">Loan</button>
+              <button class="btn btn-sm btn-danger">Deny</button>
+            </td>
           </tr>
         <% end %>
       </tbody>
@@ -42,21 +46,24 @@
       <thead>
         <tr>
           <th>Title</th>
-          <th>Author</th>
-          <th>Publisher</th>
-          <th>Pages</th>
-          <th>Quantity</th>
-          <th>Language</th>
-          <th>Discipline</th>
-          <th colspan="3"></th>
+          <th>Loaner</th>
+          <th>Until</th>
+          <th>Qt. available</th>
+          <th></th>
         </tr>
       </thead>
 
       <tbody>
-        <% @bookings.each do |book| %>
-        <tr>
-
-        </tr>
+        <% @bookings.each do |booking| %>
+          <tr>
+            <td><%= booking.book.title %></td>
+            <td><%= booking.book.user.name %></td>
+            <td><%= booking.booked_until %></td>
+            <td><%= booking.book.quantity %></td>
+            <td class="text-center">
+              <button class="btn btn-sm btn-danger">Cancel</button>
+            </td>
+          </tr>
         <% end %>
       </tbody>
     </table>
