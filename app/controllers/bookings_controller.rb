@@ -1,7 +1,6 @@
 class BookingsController < ApplicationController
 
 before_action :authenticate_user!
-load_and_authorize_resource
 skip_load_and_authorize_resource only: :show
     
     def index
