@@ -4,7 +4,7 @@ before_action :authenticate_user!
 skip_load_and_authorize_resource only: :show
     
     def index
-        @bookings_for = Booking.where("book_id in (select id from books where user_id = ?)", current_user.id)
+        @bookings_for = Booking.where("book_id in (select id from books where user_id = ?) and id not in (select booking_id from loans)", current_user.id)
         @bookings_from = Booking.where user_id: current_user.id 
     end
 
