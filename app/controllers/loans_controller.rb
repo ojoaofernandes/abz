@@ -1,5 +1,5 @@
 class LoansController < ApplicationController
-  before_action :set_loan, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, :set_loan, only: [:show, :edit, :update, :destroy]
 
   # GET /loans
   # GET /loans.json
