@@ -6,17 +6,19 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <%= nav_link 'See Books', root_path %>
       <% if user_signed_in? %>
         <%= nav_link 'My Books', books_path %>
+        <%= nav_link 'Booking for', bookings_index_path %>
+        <%= nav_link 'Booking from', bookings_index_path %>
       <% end %>
     </ul>
+
     <ul class="navbar-nav">
       <% if user_signed_in? %>
         <li class="nav-item">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown">
-              Hello, <strong><%= current_user.email %></strong>
+              Hello, <strong><%= current_user.name %></strong>
             </a>
             <div class="dropdown-menu">
               <%= link_to 'Edit profile', edit_user_registration_path, class: 'dropdown-item' %>
